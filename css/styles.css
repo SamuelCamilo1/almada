@@ -1,0 +1,117 @@
+/* Fontes */
+body {
+    font-family: 'Cagliostro', sans-serif;
+    background-color: #fff0f5;
+    text-align: center;
+    margin: 0;
+    overflow: hidden; /* Para ocultar elementos que saem da tela */
+}
+
+header h1 {
+    font-family: 'Spectral', serif;
+    font-size: 3rem; /* Tamanho padrão para desktop */
+    color: #ff69b4;
+    margin-top: 20px;
+}
+
+.container {
+    position: relative;
+    margin-top: 20px;
+}
+
+.almada-photo {
+    width: 50vw; /* Largura responsiva */
+    height: auto; /* Altura automática para manter proporção */
+    max-width: 500px; /* Limite máximo para grandes telas */
+    border-radius: 50%;
+    border: 5px solid #ff69b4;
+    object-fit: cover;
+    cursor: pointer; /* Aponta que a imagem pode ser clicada */
+}
+
+/* Corações */
+.hearts-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.heart {
+    width: 50px; /* Tamanho padrão para desktop */
+    height: 50px; /* Tamanho padrão para desktop */
+    background-color: #ff69b4;
+    position: relative;
+    transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 50px; /* Tamanho padrão para desktop */
+    height: 50px; /* Tamanho padrão para desktop */
+    background-color: #ff69b4;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    left: 25px;
+    top: 0;
+}
+
+/* Estilo para os símbolos caindo */
+.falling-symbols {
+    position: fixed; /* Mudar para fixed para ocupar toda a tela */
+    top: 0;
+    left: 0; /* Alinhado à esquerda */
+    width: 100%; /* Largura total da tela */
+    height: 100%; /* Altura total da tela */
+    pointer-events: none; /* Não permitir interação */
+}
+
+.falling-symbols .symbol {
+    width: 50px; /* Tamanho padrão para desktop */
+    height: 50px; /* Tamanho padrão para desktop */
+    position: absolute;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem; /* Tamanho do título para telas menores */
+    }
+
+    .almada-photo {
+        width: 90vw; /* Largura para dispositivos móveis */
+        max-width: 200px; /* Limite máximo para telas pequenas */
+    }
+
+    .heart {
+        width: 30px; /* Tamanho reduzido para dispositivos móveis */
+        height: 30px; /* Tamanho reduzido para dispositivos móveis */
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 30px; /* Tamanho reduzido para dispositivos móveis */
+        height: 30px; /* Tamanho reduzido para dispositivos móveis */
+    }
+}
